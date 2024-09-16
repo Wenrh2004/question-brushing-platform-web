@@ -1,24 +1,60 @@
 {
-  "name": "question-brushing-platform-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.11"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.11"
-  }
+	"name": "question-brushing-platform-web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint && npm run lint-stylelint",
+		"lint-stylelint": "stylelint --config .stylelintrc.json src/**/*.{less,css,scss}",
+		"fix": "next lint --fix && npm run lint-stylelint --config .stylelintrc.json --fix",
+		"prepare": "husky install",
+		"commit": "git-cz"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint",
+			"commit-msg": "commitlint --config .commitlintrc.js -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js}": [
+			"next lint"
+		],
+		"*.{css,less,scss}": [
+			"stylelint --config .stylelintrc.json"
+		],
+		"*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+			"prettier --write"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-customizable"
+		}
+	},
+	"dependencies": {
+		"@commitlint/config-conventional": "^19.5.0",
+		"commitizen": "^4.3.0",
+		"commitlint": "^19.5.0",
+		"commitlint-config-cz": "^0.13.3",
+		"cz-customizable": "^7.2.1",
+		"eslint-config-prettier": "^9.1.0",
+		"husky": "^9.1.6",
+		"next": "14.2.11",
+		"prettier": "^3.3.3",
+		"react": "^18",
+		"react-dom": "^18",
+		"stylelint": "^16.9.0",
+		"stylelint-config-standard": "^36.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8",
+		"eslint-config-next": "14.2.11",
+		"typescript": "^5"
+	}
 }
