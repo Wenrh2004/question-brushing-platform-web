@@ -35,7 +35,9 @@
 		}
 	},
 	"dependencies": {
+		"@ant-design/nextjs-registry": "^1.0.1",
 		"@commitlint/config-conventional": "^19.5.0",
+		"antd": "^5.20.6",
 		"commitizen": "^4.3.0",
 		"commitlint": "^19.5.0",
 		"commitlint-config-cz": "^0.13.3",
