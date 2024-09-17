@@ -25,7 +25,8 @@ Readonly<{
     // 初始化全局用户状态
     const res = await getCurrentUserUsingGet();
       if (res.data) {
-        //更新用户全局状态
+          // 保存用户登录态
+          dispatch(setLoginUser(res.data));
       } else {
         //清除用户全局状态
         

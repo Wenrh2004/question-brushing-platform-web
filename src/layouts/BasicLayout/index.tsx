@@ -17,7 +17,7 @@ import getAccessibleMenus from '@/access/menuAccess';
   
 
   // 搜索条
-  function SearchInput() {
+  const SearchInput = () => {
   return (
     <div
       key="SearchOutlined"
@@ -57,7 +57,23 @@ import getAccessibleMenus from '@/access/menuAccess';
     // 获取用户登录信息
     const loginUser = useSelector((state:RootState) => state.loginUser);
 
-    return (
+/**
+    * 用户注销
+        const userLogout = async () => {
+          try {
+              await userLogoutUsingPost();
+              message.success("已退出登录");
+              dispatch(setLoginUser(DEFAULT_USER));
+              router.push("/user/login");
+          } catch (e) {
+              message.error("操作失败，" + e.message);
+          }
+          return;
+    }
+*/
+
+
+      return (
       <div
         id="tbasicLayout"
         style={{
@@ -79,21 +95,32 @@ import getAccessibleMenus from '@/access/menuAccess';
                 size: 'small',
                 title: loginUser.userName || 'QIT',
                 render: (props: any, dom: any) => {
-                  return (
-                    <Dropdown
-                      menu={{
-                        items: [
-                          {
-                            key: 'logout',
-                            icon: <LogoutOutlined />,
-                            label: '退出登录',
-                          },
-                        ],
-                      }}
-                    >
-                      {dom}
-                    </Dropdown>
-                  );
+                    if(!loginUser.id) {
+                        return <Link href={"/user/login"}>{dom}</Link>;
+                    }
+                      return (
+                          <Dropdown
+                              menu={{
+                                  items: [
+                                      {
+                                          key: "logout",
+                                          icon: <LogoutOutlined />,
+                                          label: "退出登录",
+                                      },
+                                  ],
+                                  onClick: async (event: { key: React.Key }) => {
+                                      const { key } = event;
+                                      // 退出登录
+                                      if (key === "logout") {
+                                          userLogout();
+                                      }
+                                  },
+                              }}
+                          >
+                              {dom}
+                          </Dropdown>
+
+                      );
                 },
               }}
               actionsRender={(props: { isMobile: any; }) => {
