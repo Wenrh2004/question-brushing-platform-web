@@ -15,7 +15,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   .page {
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
@@ -66,7 +65,10 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -105,7 +107,6 @@ a.secondary {
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-
   a.primary:hover {
     background: var(--button-primary-hover);
     border-color: transparent;
@@ -123,7 +124,6 @@ a.secondary {
 }
 
 @media (width <= 600px) {
-
   .page {
     padding: 32px;
     padding-bottom: 80px;
@@ -159,7 +159,6 @@ a.secondary {
 }
 
 @media (prefers-color-scheme: dark) {
-
   .logo {
     filter: invert();
   }
