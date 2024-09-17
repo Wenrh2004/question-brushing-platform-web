@@ -36,8 +36,15 @@
 	},
 	"dependencies": {
 		"@ant-design/nextjs-registry": "^1.0.1",
+		"@ant-design/pro-components": "^2.7.18",
+		"@ant-design/pro-form": "^2.30.2",
+		"@bytemd/plugin-gfm": "^1.21.0",
+		"@bytemd/plugin-highlight": "^1.21.0",
+		"@bytemd/react": "^1.21.0",
 		"@commitlint/config-conventional": "^19.5.0",
+		"@reduxjs/toolkit": "^2.2.7",
 		"antd": "^5.20.6",
+		"axios": "^1.7.7",
 		"commitizen": "^4.3.0",
 		"commitlint": "^19.5.0",
 		"commitlint-config-cz": "^0.13.3",
@@ -45,9 +52,9 @@
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^9.1.6",
 		"next": "14.2.11",
-		"prettier": "^3.3.3",
 		"react": "^18",
 		"react-dom": "^18",
+		"react-redux": "^9.1.2",
 		"stylelint": "^16.9.0",
 		"stylelint-config-standard": "^36.0.1"
 	},
@@ -55,8 +62,10 @@
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
+		"@umijs/openapi": "^1.12.1",
 		"eslint": "^8",
 		"eslint-config-next": "14.2.11",
+		"prettier": "3.3.3",
 		"typescript": "^5"
 	}
 }
